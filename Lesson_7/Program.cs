@@ -14,9 +14,9 @@ for (int i = 0; i < kol; i++)
 Console.WriteLine("Number of positive elements is " + count);
 */
 
-// Задача 2. ДЗ 6 2 задача
+// Задача 2. ДЗ 6 2 задача, перевод из 10 в 2-ую систему.
 /*
-int num = 3;
+int num = 46;
 string boolNumber = string.Empty;
 
 while (num > 0)
@@ -28,9 +28,8 @@ while (num > 0)
 Console.WriteLine(boolNumber);
 */
 
-
 // Задача 3. Задайте двумерный массив. Найдите сумму элементов, находящихся на главной диагонали (с индексами (0,0); (1;1) и т.д.
-// Главная диагональ с левого верхнего угла в правый нижний. Массив должен быть квадратный. 
+// Главная диагональ с левого верхнего угла в правый нижний, у которой i = j (0,0; 1,1; 2,2 и т д). Массив должен быть квадратный. 
 /*
 int SumOfDiagonal(int[,] quad)
 {
@@ -55,7 +54,7 @@ for (int i = 0; i < matrix.GetLength(0); i++)
     Console.WriteLine();
 }
 
-Console.WriteLine(SumOfDiagonal(matrix));
+Console.WriteLine("Сумма элементов на главной диагонали = " + SumOfDiagonal(matrix));
 */
 
 // Задача 4. Задайте двумерный массив размера m на n, каждый элемент в массиве 
@@ -91,11 +90,14 @@ int[,] ArrayGen(int m, int n)
     {
         for (int j = 0; j < n; j++)
         {
-            matrix[i,j] = new Random().Next(0, 10);
+            matrix[i, j] = new Random().Next(0, 10);
             Console.Write(matrix[i, j] + "\t");
         }
         Console.WriteLine();
     }
+
+    Console.WriteLine();
+
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
@@ -107,16 +109,15 @@ int[,] ArrayGen(int m, int n)
     }
 
     return matrix;
-
 }
+
 Console.Write("Input amount of rows: ");
 int rows = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Input amount of cols: ");
 int cols = Convert.ToInt32(Console.ReadLine());
 
-int[,] array = new int[rows, cols];
-array = ArrayGen(rows, cols);
+int[,] array = ArrayGen(rows, cols);
 */
 
 
