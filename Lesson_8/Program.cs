@@ -1,6 +1,27 @@
 ﻿// Задача 1. Задайте двумерный массив. Напишите программу, которая поменяет местами первую и последнюю строку массива.
 /*
-int[,] ChangeMassive(int[,] nmatrix)
+int[,] Create2DArray(int rows, int cols)
+{
+    int[,] matrix = new int[rows, cols];
+
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            matrix[i, j] = new Random().Next(0, 10);
+    return matrix;
+}
+
+void ShowArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write(array[i, j] + " ");
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
+int[,] ChangeLastToFirstRows(int[,] nmatrix)
 {
     int temp;
     for (int j = 0; j < nmatrix.GetLength(1); j++)
@@ -10,7 +31,6 @@ int[,] ChangeMassive(int[,] nmatrix)
         nmatrix[nmatrix.GetLength(0) - 1, j] = temp;
     }
     return nmatrix;
-    Console.WriteLine();
 }
 
 Console.Write("Input amount of rows: ");
@@ -19,19 +39,10 @@ int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Input amount of cols: ");
 int n = Convert.ToInt32(Console.ReadLine());
 
-int[,] matrix = new int[m, n];
+int[,] myArray = Create2DArray(m, n);
 
-for (int i = 0; i < m; i++)
-{
-    for (int j = 0; j < n; j++)
-    {
-        matrix[i, j] = new Random().Next(0, 10);
-        Console.Write(matrix[i, j] + " ");
-    }
-    Console.WriteLine();
-}
-
-Console.WriteLine(ChangeMassive(matrix));
+ShowArray(myArray);
+ShowArray(ChangeLastToFirstRows(myArray));
 */
 
 // Задача 2.Задайте двумерный массив. Напишите программу, которая заменяет строки на столбцы. 
@@ -42,32 +53,49 @@ int[,] ChangeColsRows(int[,] arr)
     int temp;
     for (int i = 0; i < arr.GetLength(0) - 1; i++)
     {
-        for (int j = i + 1; j < arr.GetLength(1) - 1; j++)
+        for (int j = i + 1; j < arr.GetLength(1); j++)
         {
             temp = arr[i, j];
             arr[i, j] = arr[j, i];
             arr[j, i] = temp;
-            Console.Write( + " ");
         }
-        Console.WriteLine();
     }
     return arr;
 }
 
-Console.Write("Input size of matrix: ");
-int size = Convert.ToInt32(Console.ReadLine());
-
-int[,] matrix = new int[size, size];
-
-for (int i = 0; i < matrix.GetLength(0); i++)
+int[,] Create2DArray(int rows, int cols)
 {
-    for (int j = 0; j < matrix.GetLength(1); j++)
+    int[,] matrix = new int[rows, cols];
+
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            matrix[i, j] = new Random().Next(0, 10);
+    return matrix;
+}
+
+void ShowArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        matrix[i, j] = new Random().Next(0, 10);
-        Console.Write(matrix[i, j] + " ");
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write(array[i, j] + " ");
+        Console.WriteLine();
     }
     Console.WriteLine();
 }
 
-Console.Write(ChangeColsRows(matrix));
+Console.WriteLine("Введите одинаковое количество строк и столбцов");
 
+Console.Write("Строки - ");
+int m = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Столбцы - ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+if (m != n) Console.Write("Поменять строки на столбцы невозможно, введите одинаковое количество строк и столбцов!");
+else
+{
+    int[,] myArray = Create2DArray(m, n);
+    ShowArray(myArray);
+    ShowArray(ChangeColsRows(myArray));
+}
