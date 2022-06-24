@@ -14,7 +14,7 @@ int num = Convert.ToInt32(Console.ReadLine());
 ShowNumber(num);
 */
 
-// Задача 3. Пользователь пишет число N b m. Вывести числа от 1 до N.
+// Задача 2. Пользователь пишет числа N и M. Вывести числа от N до M. Считаем, что N < M.
 /*
 void ShowNumber(int n, int m)
 {
@@ -32,7 +32,8 @@ int M = Convert.ToInt32(Console.ReadLine());
 
 ShowNumber(num, M);
 */
-// Задача 2. Возвести А в степень B.
+
+// Задача 3. Возвести А в степень B.
 /*
 int ExponentialNum(int a, int b)
 {
